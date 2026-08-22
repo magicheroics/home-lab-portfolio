@@ -34,12 +34,6 @@ Pi-hole Server (192.168.0.198)
 
 ## Screenshots
 
-*(Add these)*
-- [ ] Pi-hole admin dashboard — query stats / blocked domains
-- [ ] Router DHCP reservation page
-- [ ] Router DNS settings page
-- [ ] Terminal — system info (`neofetch` or `hostnamectl`)
-- [ ] SSH session connecting to the server
 
 ## What I Learned
 
