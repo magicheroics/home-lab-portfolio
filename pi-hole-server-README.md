@@ -33,7 +33,19 @@ Pi-hole Server (192.168.0.198)
 ```
 
 ## Screenshots
+1) Pi-hole admin dashboard
 <img width="1359" height="699" alt="Pi-hole admin dashboard" src="https://github.com/user-attachments/assets/af78809e-be31-4dee-a430-bfaca72d3019" />
+
+2)Router DHCP reservation page
+<img width="1356" height="244" alt="Router DHCP reservation page" src="https://github.com/user-attachments/assets/57bf9041-d717-469a-a29a-051bb59c51fa" />
+
+3)Router DNS settings page
+<img width="1051" height="405" alt="Router DNS settings page" src="https://github.com/user-attachments/assets/e11c1894-e4d2-4504-a6e9-7012ffee2613" />
+
+4)system info
+<img width="760" height="390" alt="system info" src="https://github.com/user-attachments/assets/53c6f5d3-f04f-4750-ad6d-92273ce8220d" />
+
+
 
 
 ## What I Learned
