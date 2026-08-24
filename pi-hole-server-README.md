@@ -33,6 +33,7 @@ Pi-hole Server (192.168.0.198)
 ```
 
 ## Screenshots
+<img width="1359" height="699" alt="Pi-hole admin dashboard" src="https://github.com/user-attachments/assets/af78809e-be31-4dee-a430-bfaca72d3019" />
 
 
 ## What I Learned
