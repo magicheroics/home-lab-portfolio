@@ -154,9 +154,18 @@ show ip interface brief      " on the router — confirms all subinterfaces are 
 
 ## Testing checklist
 
+
 - [ ] Same-VLAN, same-switch ping (e.g. two PCs on SW1, different VLANs — skip, use same VLAN)
 - [ ] Same-VLAN, different-switch ping (e.g. PC0 → PC3, both VLAN 10) — should switch through the core, no router involved
 - [ ] Cross-VLAN ping (e.g. PC0 → PC1, VLAN 10 → VLAN 20) — should route through the router's subinterfaces
 - [ ] `show vlan brief` on all switches — all 3 VLANs active everywhere
 - [ ] `show interfaces trunk` on all switches — all VLANs active and forwarding, not just allowed
 - [ ] `show ip interface brief` on router — all subinterfaces up/up
+
+
+
+
+<img width="924" height="518" alt="ksnip_20260902-130613" src="https://github.com/user-attachments/assets/1042a4db-7690-488a-9033-a7ff76eebf58" />
+
+
+
