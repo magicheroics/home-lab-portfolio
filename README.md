@@ -18,10 +18,5 @@ IT student studying networking and cybersecurity, working toward CCNA certificat
 
 **Currently learning:** CCNA (24-week self-study roadmap), SOC analyst fundamentals, home lab security practice
 
-**Tools I use:** Cisco Packet Tracer, Wireshark, Docker, VirtualBox, Pi-hole, Splunk, Snort
+**Tools I use:** Cisco Packet Tracer, Wireshark, Docker, VirtualBox, Pi-hole 
 
-## Connect
-
-- TryHackMe: _add your profile link_
-- Hack The Box: _add your profile link_
-- LinkedIn: _add your profile link_
