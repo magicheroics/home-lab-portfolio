@@ -100,6 +100,9 @@ Tests 1–3 confirm the switches enforce VLAN isolation correctly, both locally 
 
 Packet Tracer's Simulation mode confirmed the packet's actual path: **PC4 → Hub0 → Switch0 → PC0**, with a "Successful" ICMP result logged in the PDU list — ruling out any ambiguity about whether the ping genuinely completed.
 
+<img width="1365" height="483" alt="image" src="https://github.com/user-attachments/assets/4a85d7f1-ff52-4e29-b5c1-cafc7bf26d6f" />
+
+
 ## The finding
 
 Placing a hub on a trunk link defeats VLAN segmentation for the native VLAN specifically. Any device plugged into that hub — regardless of whether it belongs to the network, has any VLAN configuration, or sits behind a switch at all — can read and respond to native VLAN traffic, because that traffic is never tagged in the first place. This is not a hub-specific flaw in general (tagged VLANs, like VLAN 20 in this lab, are unaffected) — it's specifically a native-VLAN-on-untrusted-media risk.
