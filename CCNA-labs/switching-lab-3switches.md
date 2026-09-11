@@ -20,7 +20,7 @@ PC1 ---Fa0/2                    PC3---Fa0/2      PC5---Fa0/2
 
 All 6 PCs (192.168.0.11–192.168.0.16) share the same subnet (255.255.255.0), with no VLANs or routing involved — a single flat Layer 2 network.
 
-## What We Did
+## What I Did
 
 ### 1. Built the topology
 Placed 3 switches and 6 PCs (2 per switch), cabled with straight-through Ethernet, and addressed all hosts in the same subnet.
