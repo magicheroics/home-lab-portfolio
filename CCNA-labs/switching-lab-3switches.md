@@ -25,6 +25,9 @@ All 6 PCs (192.168.0.11–192.168.0.16) share the same subnet (255.255.255.0), w
 ### 1. Built the topology
 Placed 3 switches and 6 PCs (2 per switch), cabled with straight-through Ethernet, and addressed all hosts in the same subnet.
 
+<img width="1350" height="440" alt="image" src="https://github.com/user-attachments/assets/ac77260e-ab42-4804-bca2-748b5bbf9df2" />
+
+
 ### 2. Observed the MAC address table populate
 - Confirmed the table starts empty (or near-empty) before any traffic.
 - Sent pings between PCs and watched `show mac address-table` fill in on each switch.
