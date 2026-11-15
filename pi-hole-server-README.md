@@ -14,6 +14,27 @@ I repurposed an old HP desktop (Pentium Dual-Core E5500, 4GB RAM) into a dedicat
 - **DNS:** Configured the router's Preferred DNS to point to Pi-hole, with the router itself as fallback Alternative DNS — so if Pi-hole ever goes down, the network doesn't lose internet access
 - **Remote access:** Set up SSH/SFTP for file transfer between the server and other devices on the network (phone, laptop)
 
+## Always-On Configuration
+
+Pi-hole is my network's DNS server, so every device loses name resolution whenever the server is off. It therefore needs to stay awake and come back on its own after a power cut.
+
+- **Sleep blocked at the OS level:** masked the sleep, suspend and hibernate targets so nothing can put the server to sleep
+  ```bash
+  sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+  ```
+- **Xfce Power Manager:** system sleep/hibernate set to *Never* (the display is allowed to turn off, since that doesn't affect the server)
+- **BIOS:** AC power recovery set to *Power On*, so the server restarts by itself after a power outage
+- **Services start on boot:** confirmed with
+  ```bash
+  systemctl is-enabled ssh tailscaled filebrowser pihole-FTL
+  ```
+
+**Verification**
+- [ ] Reboot test: after `sudo reboot`, SSH, Pi-hole and File Browser all respond without manual action
+- [ ] Idle test: server still reachable after being left idle for an hour or more
+- [ ] Power-loss test: server comes back on by itself after the power is cut and restored
+
+
 ## Network Diagram
 
 ```
