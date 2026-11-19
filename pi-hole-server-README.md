@@ -123,7 +123,11 @@ sudo systemctl restart systemd-resolved
 - Because Pi-hole is the network's DNS, a single misconfiguration can look like "the internet is down" for every device
 - Redundancy matters: two upstream resolvers instead of one, plus the router as a fallback DNS server on the network
 
-      
+
+
+
+ **upstream DNS servers**     
+<img width="1046" height="536" alt="image" src="https://github.com/user-attachments/assets/f5ac3485-8f08-478f-83a5-557ebfed4b67" />
 
 
 ## What I Learned
