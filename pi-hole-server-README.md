@@ -75,6 +75,8 @@ Pi-hole Server (192.168.0.198)
 <img width="1302" height="696" alt="Pi hole query blocks" src="https://github.com/user-attachments/assets/4ce8b396-329d-458c-8bda-9be8c3aa3602" />
 
 
+      **Upstream DNS servers** 
+      <img width="1046" height="536" alt="image" src="https://github.com/user-attachments/assets/86e41cff-1a9b-4c22-83f5-1afa6c2d0f7a" />
 
 
 
@@ -120,6 +122,9 @@ sudo systemctl restart systemd-resolved
 - Test one layer at a time: IP connectivity, then DNS through the system resolver, then DNS against a specific server
 - Because Pi-hole is the network's DNS, a single misconfiguration can look like "the internet is down" for every device
 - Redundancy matters: two upstream resolvers instead of one, plus the router as a fallback DNS server on the network
+
+      
+
 
 ## What I Learned
 
