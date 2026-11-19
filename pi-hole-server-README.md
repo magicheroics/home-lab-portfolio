@@ -86,6 +86,49 @@ Pi-hole Server (192.168.0.198)
 - Basic Linux server administration on constrained hardware (4GB RAM)
 - Setting up secure remote access (SSH/SFTP) on a home network
 
+  ## Troubleshooting: DNS Outage
+
+**Symptom:** the server itself lost working name resolution. `ping 8.8.8.8` succeeded, but `ping google.com` failed with "Temporary failure in name resolution". That pattern means the internet connection was fine and DNS was the broken layer.
+
+**Diagnosis**
+1. Compared pinging an IP address against pinging a name, which isolated the problem to DNS
+2. `nslookup google.com 8.8.8.8` worked, but `nslookup google.com 127.0.0.1` (Pi-hole) returned `REFUSED`. Pi-hole was running (`systemctl status pihole-FTL`) but declining to answer
+3. `sudo pihole-FTL --config dns.upstreams` showed Pi-hole had only **one** upstream DNS server configured
+4. `resolvectl status` and `cat /etc/resolv.conf` showed the server's own resolver file had been rewritten by Tailscale and pointed at Tailscale's resolver (`100.100.100.100`) instead of the normal local resolver
+
+**Root causes**
+- Pi-hole depended on a single upstream DNS server, so one failing upstream made it refuse every query
+- Tailscale's DNS override on the server changed where the server's own lookups went
+
+**Fixes**
+```bash
+# Give Pi-hole two upstream resolvers
+sudo pihole-FTL --config dns.upstreams '["1.1.1.1","8.8.8.8"]'
+sudo systemctl restart pihole-FTL
+
+# Stop Tailscale overriding this machine's DNS
+sudo tailscale set --accept-dns=false
+
+# Restore Ubuntu's default resolver setup
+sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+sudo systemctl restart systemd-resolved
+```
+
+**Result:** name resolution works again on the server and across the network, and Tailscale remote access is unaffected.
+
+**Takeaways**
+- Test one layer at a time: IP connectivity, then DNS through the system resolver, then DNS against a specific server
+- Because Pi-hole is the network's DNS, a single misconfiguration can look like "the internet is down" for every device
+- Redundancy matters: two upstream resolvers instead of one, plus the router as a fallback DNS server on the network
+
+## What I Learned
+
+- How DNS resolution works at the network level and why sinkholing at the DNS layer is more efficient than per-device ad-blockers
+- DHCP reservations vs static IP configuration — trade-offs of each
+- Basic Linux server administration on constrained hardware (4GB RAM)
+- Setting up secure remote access (SSH/SFTP) on a home network
+
+
 ## Next Steps
 
 - Add a fallback DNS resolver (e.g. Unbound) for full recursive resolution instead of relying on upstream DNS
